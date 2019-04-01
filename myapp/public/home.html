@@ -5,15 +5,16 @@
 	<title>Login</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="stylesheets/home.css" />
+    <script src="javascripts/home.js" type="text/javascript"></script>
 </head>
 
 <body>
 	<h1>Sign in: </h1> <br /> <br /> 
 	<label class="heading" for"username">Username: </label>
-	<input type="text" name="username" pattern="[A-Za-z]*" required/> <br />
+	<input type="text" id="username" name="username" pattern="[A-Za-z]*" required/> <br />
 	<label class="heading" for=password">Password: </label>
-	<input type="password" name="password" required/> <br /> <br />
-	<input id="button" type="submit" />
+	<input type="password" id="password" name="password" required/> <br /> <br />
+	<input id="button" type="submit" onclick="check_fields()"/>
 </body>
 
 </html>
