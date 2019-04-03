@@ -2,6 +2,26 @@ function upload_file() {
     console.log('idk how to upload file');
 }
 
+function sign_out() {
+    console.log("Get me out");
+}
+
+function expand() {
+    var curr =this.value;
+    console.log(curr);
+    if(curr === 'Show') {
+        this.value = "Hide";
+        document.getElementById("create_file").textContent = "Hide";
+        
+    } else if (curr === "Hide") {
+        this.value = "Show";
+        document.getElementById("create_file").textContent = "Show";
+    } else {
+        this.value = "Show";
+        document.getElementById("create_file").textContent = "Show";
+    }
+}
+
 window.onload = function welcome_user() {
     //First, we welcome that specific user. 
     var curr_user = "scrub";
@@ -27,6 +47,13 @@ window.onload = function welcome_user() {
 
 if(document.readyState !== "loading") {
     document.getElementById("up_file").addEventListener("click", upload_file);
+    document.getElementById("sign_out").addEventListener("click", sign_out);
+    document.getElementById("create_file").addEventListener("click", expand);
+
 } else {
     document.addEventListener("DOMContentLoaded", function() {document.getElementById("up_file").addEventListener("click", upload_file);});
+    document.addEventListener("DOMContentLoaded", function() {document.getElementById(
+        "sign_out").addEventListener("click", sign_out);});
+    document.addEventListener("DOMContentLoaded", function() {document.getElementById("create_file").addEventListener("click", expand);});
+
 } 
