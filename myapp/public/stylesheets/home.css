@@ -6,8 +6,8 @@ label.heading{
 	width: 7em;	
 }
 
-#button{
-	margin-left: 16em;
+.mybutton{
+	margin-left: 15em;
 	margin-right:1em;
 	width: 5%;
 }

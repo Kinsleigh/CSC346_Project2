@@ -17,13 +17,14 @@ function check_fields() {
         password.style.backgroundColor = goodColor;
     }
 
+    //.value.trim()
     if(!username_bad && !password_bad){ // we are "good", do stuff here
         var xhr = new XMLHttpRequest();
         xhr.addEventListener("load", loginResponse);
         xhr.responseType = "json";
-        xhr.open("POST", '/users/login');
+        xhr.open('POST', '/users/login');
         xhr.setRequestHeader("Content-type", "application/json");
-        xhr.send(JSON.stringify({username:username.value.trim(), password:password}));
+        xhr.send(JSON.stringify({username:username, password:password}));
     }
 }
 
@@ -31,11 +32,17 @@ function loginResponse() {
     console.log(this.status);
     if(this.status == 200) {
         if(this.response.success) {
-            console.log('YEET');
+            console.log('successful entry');
         } else {
-            console.log('YIKES');
+            console.log('no entry');
         }
     } else {
-        console.log('Wat');
+        console.log('not working');
     }
-}  
+} 
+
+if(document.readyState !== "loading") {
+    document.getElementById("signup").addEventListener("click", check_fields);
+} else {
+    document.addEventListener("DOMContentLoaded", function() {document.getElementById("login").addEventListener("click", check_fields);});
+} 
