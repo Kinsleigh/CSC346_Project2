@@ -30,6 +30,7 @@ function check_fields() {
 
 function loginResponse() {
     console.log(this.status);
+    console.log(this.response);
     if(this.status == 200) {
         if(this.response.success) {
             console.log('successful entry');

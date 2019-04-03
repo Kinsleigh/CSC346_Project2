@@ -1,13 +1,19 @@
 label.heading{
-	text.align: center;
-	float: left;
-	margin-left: 3em;
-	margin-right:1em;
-	width: 7em;	
+    text.align: center;
+    float: left;
+    margin-left: 3em;
+    margin-right:1em;
+    width: 7em; 
 }
 
 .mybutton{
-	margin-left: 15em;
-	margin-right:1em;
-	width: 5%;
+    margin-left: 15em;
+    margin-right:1em;
+    width: 5%;
+}
+
+#upload_button{
+    margin-left: 3em;
+    margin-right:1em;
+    width: 5%;
 }

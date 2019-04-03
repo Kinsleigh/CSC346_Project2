@@ -1,48 +1,32 @@
-function check_fields() {
-    var username = document.getElementById('username');
-    var password = document.getElementById('password');
-    username_bad = username.value.trim().indexOf(' ') !== -1 || username.value.trim() === "";
-    password_bad = password.value.indexOf(' ') !== -1 || password.value.trim() === "";
-    var badColor = "#ff6666";
-    var goodColor = "#ffffff";
-
-    if(username_bad) {
-        username.style.backgroundColor = badColor;
-    } else {
-        username.style.backgroundColor = goodColor;
-    }
-    if(password_bad) {
-        password.style.backgroundColor = badColor;
-    } else {
-        password.style.backgroundColor = goodColor;
-    }
-
-    //.value.trim()
-    if(!username_bad && !password_bad){ // we are "good", do stuff here
-        var xhr = new XMLHttpRequest();
-        xhr.addEventListener("load", loginResponse);
-        xhr.responseType = "json";
-        xhr.open('POST', '/users/login');
-        xhr.setRequestHeader("Content-type", "application/json");
-        xhr.send(JSON.stringify({username:username, password:password}));
-    }
+function upload_file() {
+    console.log('idk how to upload file');
 }
 
-function loginResponse() {
-    console.log(this.status);
-    if(this.status == 200) {
-        if(this.response.success) {
-            console.log('successful entry');
-        } else {
-            console.log('no entry');
-        }
-    } else {
-        console.log('not working');
+window.onload = function welcome_user() {
+    //First, we welcome that specific user. 
+    var curr_user = "scrub";
+    document.getElementById("welcome").innerHTML = 'Welcome ' + curr_user;
+
+    //then, we load the files available to them on the webpage. 
+
+    //This is where we would prase the json for the files available to the user. 
+    var arr = new Object();
+    arr["file1"] = "path1";
+    arr["file2"] = "path2";
+
+    //This is where we make the files display on the webpage. 
+    for(var key in arr) {
+        var child = document.createElement("a");
+        child.href = arr[key];
+        child.innerHTML = key;
+        document.getElementById("files").append(child);
+        document.getElementById("files").append(document.createElement("br"));
     }
-} 
+};
+
 
 if(document.readyState !== "loading") {
-    document.getElementById("signup").addEventListener("click", check_fields);
+    document.getElementById("up_file").addEventListener("click", upload_file);
 } else {
-    document.addEventListener("DOMContentLoaded", function() {document.getElementById("login").addEventListener("click", check_fields);});
+    document.addEventListener("DOMContentLoaded", function() {document.getElementById("up_file").addEventListener("click", upload_file);});
 } 
