@@ -1,3 +1,4 @@
+"use strict";
 var createError = require('http-errors');
 var http = require('http');
 var express = require('express');
