@@ -1,4 +1,6 @@
 function upload_file() {
+
+    //trigger route that performs 
     console.log('idk how to upload file');
 }
 
