@@ -23,8 +23,10 @@
     background-color: #E0E0E0;
     color: #000;
     cursor:default;
-    font-size: 10pt;
+    font-size: 12pt;
+    font-family: "Times New Roman";
     resize: none;
+    tab-size: 4;
 }
 
 body {
