@@ -1,3 +1,4 @@
+//this chanes the font to bold, italic, normal, etc. 
 function change_fontstyle(){
     var style = document.getElementById("style").value.toLowerCase();
     if(style === "plain") {
@@ -15,27 +16,33 @@ function change_fontstyle(){
     }
 }
 
+//I change the font to either Times New Roman, Arial, and Comic Sans (the best font).
 function change_font(){
     var type = document.getElementById("font").value;
     console.log(type);
     document.getElementById("textblock").style.fontFamily = type;
 }
 
+//This changes the size of the font. 
 function change_size(){
     var size =  document.getElementById("size").value;
     document.getElementById("textblock").style.fontSize = size + "pt";
 }
 
+//this changes how tabs are displayed (the number of spaces). 
 function change_tab(){
     var tab_size =  document.getElementById("tab").value;
     document.getElementById("textblock").style.tabSize = tab_size;
 }
 
+//this function will take all the text, send it to the backend, then write it to a file.
 function upload_file(){
     console.log("Jokes");
 }
 
-//I borrowed this code from StackOverflow so I could use tabs for writing programs
+//I borrowed this code from StackOverflow, here is the link:
+//https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea
+//I did not really need the tabs, but it made it so the text editor could be used to write programs.
 function replace_tab() {
     var textareas = document.getElementsByTagName('textarea');
     var count = textareas.length;
@@ -51,6 +58,7 @@ function replace_tab() {
     }
 }
 
+//this adds listeners so I don't use onclick and stuff in the .html page, which is too revealing imo.
 if(document.readyState !== "loading") {
     document.getElementById("style").addEventListener("change", change_fontstyle);
     document.getElementById("font").addEventListener("change", change_font);
